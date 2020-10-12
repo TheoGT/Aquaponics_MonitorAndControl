@@ -5,7 +5,7 @@ bool pressed = false;                                       //Ensures only risin
 
 void setup() 
 {
-  pinMode(INPUT_PIN, INPUT); 
+  pinMode(RESET_PIN, INPUT); 
   pinMode(RESET_PIN, INPUT);
   Serial.begin(9600);
 }
@@ -14,13 +14,14 @@ void setup()
 void loop() {
   if (digitalRead(RESET_PIN))
   {
-    Serial.println("RESET");                                //Sends RESET string to python code
+    //Serial.println("RESET");                                //Sends RESET string to python code
   }
   else if (digitalRead(INPUT_PIN) && !pressed)
   {
     Serial.println("PRESSED");                              //Sends a generic PRESSED string to python code
     pressed = true;
   }
+
   else if (!digitalRead(INPUT_PIN) && pressed)
   {
     pressed = false;
