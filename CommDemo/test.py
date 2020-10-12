@@ -1,15 +1,19 @@
 import serial
 
-port = "/dev/cu.wchusbserial1410"   #port name, probably COM4 on window
+port = "/dev/cu.usbmodem1411"   #port name, probably COM4 on window
+f = open('numPress.txt', 'w');
 
 ard = serial.Serial(port, 9600)     #9600 open on arduio
+count = 0
 
 while True:
     byte = ard.readline()           #reads byte code ending in line-terminator
     msg = byte.decode("utf-8")      #Convert to string
 
-    if("RESET" in msg):
+
+    if(count == 10):
         ard.close()                 #Reset string to close port
+        f.write('The number of count is ' + str(count) + '\n')
         break
-    print(msg)
+    count+=1
         
