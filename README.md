@@ -8,3 +8,4 @@ Need to do for website:
 :)
 
 CSS Template: https://startbootstrap.com/templates/sb-admin-angular/
+Style Guidelines: https://www.cs.cmu.edu/~112/notes/notes-style.html
