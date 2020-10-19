@@ -7,5 +7,5 @@ Need to do for website:
 
 :)
 
-CSS Template: https://startbootstrap.com/templates/sb-admin-angular/
-Maybe try this one instead (I think it has the css files): https://startbootstrap.com/templates/sb-admin/
+CSS Template: https://startbootstrap.com/templates/sb-admin/
+Icons: https://fontawesome.com/
