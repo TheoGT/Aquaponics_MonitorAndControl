@@ -14,7 +14,7 @@ def home():
 
 @app.route("/temp")
 def temp():
-    return render_template("temp.html")
+    return render_template("Temperature(Ambient).html")
 
 if __name__ == "__main__":
     app.run(debug=True)
