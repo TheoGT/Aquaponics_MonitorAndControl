@@ -164,44 +164,28 @@
                             <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
                             <li class="breadcrumb-item active">Temperature (Ambient)</li>
                         </ol>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-bar mr-1"></i>
-                                        Ambient Temperature Readings
-                                    </div>
-                                    <script type="text/javascript"
-                                    src="../static/js/dygraph.js"></script>
-                                    <link rel="stylesheet" src="../static/css/dygraph.css">
-                                    <div id="graphdiv2"
-                                    style="width:500px; height:300px;"></div>
-                                    </div>
-                                    <script type="text/javascript">
-                                    g2 = new Dygraph(
-                                        document.getElementById("graphdiv2"),
-                                        "../static/temperatures.csv", // path to CSV file
-                                        {}          // options
-                                    );
-                                    </script>
-                                    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+                            <div class="card mb-4">
+                                <div class="card-header">
+                                    <i class="fas fa-chart-bar mr-1"></i>
+                                    Ambient Temperature Readings
                                 </div>
+                                <script type="text/javascript"
+                                src="../static/js/dygraph.js"></script>
+                                <link rel="stylesheet" src="../static/css/dygraph.css">
+                                <div id="graphdiv2"
+                                style="width:100%; height:300px;"></div>
+                                </div>
+                                <script type="text/javascript">
+                                g2 = new Dygraph(
+                                    document.getElementById("graphdiv2"),
+                                    "../static/csv/temperatures.csv", // path to CSV file
+                                    {}          // options
+                                );
+                                </script>
+                                <div class="card-footer small text-muted">Updated:11:59 PM</div>
                             </div>
-                        </div>
                     </div>
                 </main>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2020</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
