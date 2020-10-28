@@ -1,0 +1,8 @@
+﻿sensor,min,max,units
+EC,0,2,mmho/cm
+flowRateNFT,3,7,cm^3/s
+flowRateDWC,1,3,cm^3/s
+nitrate,10,20,mg/L
+pH,7,9,
+temperatureAmbient,70,85,F
+temperatureWater,60,75,F

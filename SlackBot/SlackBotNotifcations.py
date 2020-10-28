@@ -1,6 +1,8 @@
 import jupyter_slack
 import os
 
+# System Monitoring Bot https://api.slack.com/apps/A01CT0FBC77/general?
+
 # Slack notifications using jupyter_slack package https://github.com/keitakurita/jupyter-slack-notify
 os.environ['SLACK_WEBHOOK_URL'] = ''
 
@@ -15,7 +17,7 @@ temperatureAmbient = [70,85] # Fahrenheight
 temperatureWater = [60,75] # Fahrenheight
 
 
-# List of min and max ideal ranges for each environmental variable and the units
+# Importing List of min and max ideal ranges for each environmental variable and the units
 
 EC = [0,2] #
 flowRate = [[],[]] # ???
