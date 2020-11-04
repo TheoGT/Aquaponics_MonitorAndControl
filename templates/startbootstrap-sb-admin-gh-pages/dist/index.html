@@ -10,6 +10,11 @@
         <link href="css/styles.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+
+         <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href='css/CircleProgress.css'>
+
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -55,10 +60,6 @@
                             <a class="nav-link" href="ElectricalConductivity.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-bolt"></i></div>
                                 Electrical Conductivity
-                            </a>
-                            <a class="nav-link" href="FlowRate.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-faucet"></i></div>
-                                Flow Rate
                             </a>
                             <a class="nav-link" href="Humidity.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tint"></i></div>
@@ -162,10 +163,246 @@
                     -->
                 </nav>
             </div>
+
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
                         <h1 class="mt-4">Dashboard</h1>
+
+                        <div class="container py-5">
+                            <div class="row">
+                          
+                              <!-- For demo purpose -->
+                              <div class="col-lg-12 mx-auto mb-5 text-white text-center">
+                                <h1 class="display-4">Bootstrap 4 circular progress bar</h1>
+                                <p class="lead mb-0">Pure CSS solution to create a circular progress bar compatible with Bootstrap 4. </p>
+                                <p class="lead">Snippet by <a href="https://bootstrapious.com/snippets" class="text-white">
+                                          <u>Bootstrapious</u></a>
+                                </p>
+                              </div>
+                              <!-- END -->
+                          
+                              <!-- Start copy here for another progress bar-->
+                              <div class="col-xl-3 col-lg-6 mb-4">
+                                <div class="bg-white rounded-lg p-5 shadow">
+                                  <h2 class="h6 font-weight-bold text-center mb-4">EC</h2>
+                          
+                                  <!-- Progress bar 1 -->
+                                  <div class="progress mx-auto" data-value='80'>
+                                    <span class="progress-left">
+                                                  <span class="progress-bar border-primary"></span>
+                                    </span>
+                                    <span class="progress-right">
+                                                  <span class="progress-bar border-primary"></span>
+                                    </span>
+                                    <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+                                      <div class="h2 font-weight-bold">80<sup class="small">%</sup></div>
+                                    </div>
+                                  </div>
+                                  <!-- END -->
+                          
+                                  <!-- Demo info -->
+                                  <div class="row text-center mt-4">
+                                    <div class="col-6 border-right">
+                                      <div class="h4 font-weight-bold mb-0">28%</div><span class="small text-gray">Last week</span>
+                                    </div>
+                                    <div class="col-6">
+                                      <div class="h4 font-weight-bold mb-0">60%</div><span class="small text-gray">Last month</span>
+                                    </div>
+                                  </div>
+                                  <!-- END -->
+                                </div>
+                              </div>
+                          <!-- End copy here for another progress bar-->
+
+                          <div class="col-xl-3 col-lg-6 mb-4">
+                            <div class="bg-white rounded-lg p-5 shadow">
+                              <h2 class="h6 font-weight-bold text-center mb-4">Humidity</h2>
+                      
+                              <!-- Progress bar 2 -->
+                              <div class="progress mx-auto" data-value='80'>
+                                <span class="progress-left">
+                                              <span class="progress-bar border-primary"></span>
+                                </span>
+                                <span class="progress-right">
+                                              <span class="progress-bar border-primary"></span>
+                                </span>
+                                <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+                                  <div class="h2 font-weight-bold">80<sup class="small">%</sup></div>
+                                </div>
+                              </div>
+                              <!-- END -->
+                      
+                              <!-- Demo info -->
+                              <div class="row text-center mt-4">
+                                <div class="col-6 border-right">
+                                  <div class="h4 font-weight-bold mb-0">28%</div><span class="small text-gray">Last week</span>
+                                </div>
+                                <div class="col-6">
+                                  <div class="h4 font-weight-bold mb-0">60%</div><span class="small text-gray">Last month</span>
+                                </div>
+                              </div>
+                              <!-- END -->
+                            </div>
+                          </div>
+
+                          <div class="col-xl-3 col-lg-6 mb-4">
+                            <div class="bg-white rounded-lg p-5 shadow">
+                              <h2 class="h6 font-weight-bold text-center mb-4">Nitrate</h2>
+                      
+                              <!-- Progress bar 3 -->
+                              <div class="progress mx-auto" data-value='80'>
+                                <span class="progress-left">
+                                              <span class="progress-bar border-primary"></span>
+                                </span>
+                                <span class="progress-right">
+                                              <span class="progress-bar border-primary"></span>
+                                </span>
+                                <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+                                  <div class="h2 font-weight-bold">80<sup class="small">%</sup></div>
+                                </div>
+                              </div>
+                              <!-- END -->
+                      
+                              <!-- Demo info -->
+                              <div class="row text-center mt-4">
+                                <div class="col-6 border-right">
+                                  <div class="h4 font-weight-bold mb-0">28%</div><span class="small text-gray">Last week</span>
+                                </div>
+                                <div class="col-6">
+                                  <div class="h4 font-weight-bold mb-0">60%</div><span class="small text-gray">Last month</span>
+                                </div>
+                              </div>
+                              <!-- END -->
+                            </div>
+                          </div>
+
+                          <div class="col-xl-3 col-lg-6 mb-4">
+                            <div class="bg-white rounded-lg p-5 shadow">
+                              <h2 class="h6 font-weight-bold text-center mb-4">pH</h2>
+                      
+                              <!-- Progress bar 4 -->
+                              <div class="progress mx-auto" data-value='80'>
+                                <span class="progress-left">
+                                              <span class="progress-bar border-primary"></span>
+                                </span>
+                                <span class="progress-right">
+                                              <span class="progress-bar border-primary"></span>
+                                </span>
+                                <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+                                  <div class="h2 font-weight-bold">80<sup class="small">%</sup></div>
+                                </div>
+                              </div>
+                              <!-- END -->
+                      
+                              <!-- Demo info -->
+                              <div class="row text-center mt-4">
+                                <div class="col-6 border-right">
+                                  <div class="h4 font-weight-bold mb-0">28%</div><span class="small text-gray">Last week</span>
+                                </div>
+                                <div class="col-6">
+                                  <div class="h4 font-weight-bold mb-0">60%</div><span class="small text-gray">Last month</span>
+                                </div>
+                              </div>
+                              <!-- END -->
+                            </div>
+                          </div>
+
+                              <div class="col-xl-3 col-lg-6 mb-4">
+                                <div class="bg-white rounded-lg p-5 shadow">
+                                  <h2 class="h6 font-weight-bold text-center mb-4">Water Level</h2>
+                          
+                                  <!-- Progress bar 5 -->
+                                  <div class="progress mx-auto" data-value='25'>
+                                    <span class="progress-left">
+                                                  <span class="progress-bar border-danger"></span>
+                                    </span>
+                                    <span class="progress-right">
+                                                  <span class="progress-bar border-danger"></span>
+                                    </span>
+                                    <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+                                      <div class="h2 font-weight-bold">25<sup class="small">%</sup></div>
+                                    </div>
+                                  </div>
+                                  <!-- END -->
+                          
+                                  <!-- Demo info-->
+                                  <div class="row text-center mt-4">
+                                    <div class="col-6 border-right">
+                                      <div class="h4 font-weight-bold mb-0">28%</div><span class="small text-gray">Last week</span>
+                                    </div>
+                                    <div class="col-6">
+                                      <div class="h4 font-weight-bold mb-0">60%</div><span class="small text-gray">Last month</span>
+                                    </div>
+                                  </div>
+                                  <!-- END -->
+                                </div>
+                              </div>
+                          
+                              <div class="col-xl-3 col-lg-6 mb-4">
+                                <div class="bg-white rounded-lg p-5 shadow">
+                                  <h2 class="h6 font-weight-bold text-center mb-4">Temp (Ambient)</h2>
+                          
+                                  <!-- Progress bar 6 -->
+                                  <div class="progress mx-auto" data-value='76'>
+                                    <span class="progress-left">
+                                                  <span class="progress-bar border-success"></span>
+                                    </span>
+                                    <span class="progress-right">
+                                                  <span class="progress-bar border-success"></span>
+                                    </span>
+                                    <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+                                      <div class="h2 font-weight-bold">76<sup class="small">%</sup></div>
+                                    </div>
+                                  </div>
+                                  <!-- END -->
+                          
+                                  <!-- Demo info -->
+                                  <div class="row text-center mt-4">
+                                    <div class="col-6 border-right">
+                                      <div class="h4 font-weight-bold mb-0">28%</div><span class="small text-gray">Last week</span>
+                                    </div>
+                                    <div class="col-6">
+                                      <div class="h4 font-weight-bold mb-0">60%</div><span class="small text-gray">Last month</span>
+                                    </div>
+                                  </div>
+                                  <!-- END -->
+                                </div>
+                              </div>
+                          
+                              <div class="col-xl-3 col-lg-6 mb-4">
+                                <div class="bg-white rounded-lg p-5 shadow">
+                                  <h2 class="h6 font-weight-bold text-center mb-4">Temp (Water)</h2>
+                          
+                                  <!-- Progress bar 7 -->
+                                  <div class="progress mx-auto" data-value='12'>
+                                    <span class="progress-left">
+                                                  <span class="progress-bar border-warning"></span>
+                                    </span>
+                                    <span class="progress-right">
+                                                  <span class="progress-bar border-warning"></span>
+                                    </span>
+                                    <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+                                      <div class="h2 font-weight-bold">12<sup class="small">%</sup></div>
+                                    </div>
+                                  </div>
+                                  <!-- END -->
+                          
+                                  <!-- Demo info -->
+                                  <div class="row text-center mt-4">
+                                    <div class="col-6 border-right">
+                                      <div class="h4 font-weight-bold mb-0">28%</div><span class="small text-gray">Last week</span>
+                                    </div>
+                                    <div class="col-6">
+                                      <div class="h4 font-weight-bold mb-0">60%</div><span class="small text-gray">Last month</span>
+                                    </div>
+                                  </div>
+                                  <!-- END -->
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          
                         <!--
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Dashboard</li>
@@ -746,5 +983,6 @@
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
         <script src="assets/demo/datatables-demo.js"></script>
+        <script src="js/CircleProgress.js"></script>
     </body>
 </html>
