@@ -1,4 +1,6 @@
 from flask import Flask, render_template      
+import pandas as pd
+import numpy as np
 
 app = Flask(__name__)
 
@@ -14,7 +16,9 @@ def home():
 
 @app.route("/temp")
 def temp():
-    return render_template("Temperature(Ambient).html")
+    lastUpdate = 'today'
+    csv = np.genfromtxt('static/csv/temperatures.csv',delimiter = ",")
+    return render_template("Temperature(Ambient).html",value = int(csv[-1,0]))
 
 if __name__ == "__main__":
     app.run(debug=True)
