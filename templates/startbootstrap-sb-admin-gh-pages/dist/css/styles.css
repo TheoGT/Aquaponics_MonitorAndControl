@@ -73,6 +73,15 @@ body {
   outline: 0 !important;
 }
 
+img{
+  padding: 25px;
+  padding-bottom: 75px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%
+}
+
 hr {
   box-sizing: content-box;
   height: 0;
