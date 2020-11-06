@@ -16,9 +16,11 @@ def home():
 
 @app.route("/temp")
 def temp():
-    lastUpdate = 'today'
     csv = np.genfromtxt('static/csv/temperatures.csv',delimiter = ",")
-    return render_template("Temperature(Ambient).html",value = int(csv[-1,0]))
+    #lastvalue = csv[-1,0]
+    #monthmax = lastval % 10000
+    
+    return render_template("Temperature(Ambient).html",value = int(csv[-1,0]), monthmin = int(csv[10,0]), monthmax = int(csv[-1,0]))
 
 if __name__ == "__main__":
     app.run(debug=True)
