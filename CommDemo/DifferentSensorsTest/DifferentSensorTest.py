@@ -18,11 +18,11 @@ class dataHandler:
 
 port = "/dev/cu.wchusbserial1410"   #port name, probably COM4 on window
 
-ard = serial.Serial(port, 115200)     #9600 open on arduino
+ard = serial.Serial(port, 9600)     #9600 open on arduino
 dict = {}
 count = 0
 
-#ard.readline()                      #Reads initial data which can be garbage since port opens in middle of writing
+ard.readline()                      #Reads initial data which can be garbage since port opens in middle of writing
 
 print("Recording...")
 while (count < 100):
@@ -30,9 +30,15 @@ while (count < 100):
     msg = byte.decode("utf-8")      #Convert to string
     time = datetime.now()
     msgList = msg.split()
+    print(msgList[0])
+    print(msgList[1])
+    print("---------------\n")
 
     for dataPoints in msgList:
         dataSplit = dataPoints.split(":")
+        print(dataSplit[0])
+        print(dataSplit[1])
+        print("====\n")
         try:                                                                        #Store data in the correct DataHandler class
             dictEntry = dict[dataSplit[0]]
             dictEntry.data.append(float(dataSplit[1]))
@@ -41,6 +47,7 @@ while (count < 100):
                 dictEntry.file.write(str(time) + "," + str(dataPoint) + "\n")
                 dictEntry.data = []
         except KeyError:                                                            #New Datatype is received, must create file for it
+            print("new entry created\n")
             newEntry = dataHandler(dataSplit[0])
             newEntry.data.append(float(dataSplit[1]))
             dict[dataSplit[0]] = newEntry
