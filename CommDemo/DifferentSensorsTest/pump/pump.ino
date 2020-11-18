@@ -11,12 +11,14 @@
 #define rx 2                                          //define what pin rx is going to be
 #define tx 3                                          //define what pin tx is going to be
 
+#MOTOR REQURIES 12-24 VOLTS!
+
 SoftwareSerial myserial(rx, tx);                      //define how the soft serial port is going to work
 
 
-String inputstring = "Find";                              //a string to hold incoming data from the PC
+String inputstring = "";                              //a string to hold incoming data from the PC
 String devicestring = "";                             //a string to hold the data from the Atlas Scientific product
-boolean input_string_complete = true;                //have we received all the data from the PC
+boolean input_string_complete = false;                //have we received all the data from the PC
 boolean device_string_complete = false;               //have we received all the data from the Atlas Scientific product
 float ml;                                             //used to hold a floating point number that is the volume 
 
@@ -32,12 +34,13 @@ void setup() {                                        //set up the hardware
 
 void serialEvent() {                                  //if the hardware serial port_0 receives a char
   inputstring = Serial.readStringUntil(13);           //read the string until we see a <CR>
-  input_string_complete = false;                       //set the flag used to tell if we have received a completed string from the PC
+  input_string_complete = true;                       //set the flag used to tell if we have received a completed string from the PC
 }
 
 
 void loop() {                                         //here we go...
 
+  //Serial.println(String(inputstring));
   if (input_string_complete == true) {                //if a string from the PC has been received in its entirety
     myserial.print(inputstring);                      //send that string to the Atlas Scientific product
     myserial.print('\r');                             //add a <CR> to the end of the string
