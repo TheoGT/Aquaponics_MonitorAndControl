@@ -1,0 +1,42 @@
+# https://stackoverflow.com/questions/57418116/how-to-send-a-http-200-for-an-event-request-for-slack-api-in-python-request
+
+import threading
+from time import sleep
+from flask import Flask, json, request
+import requests
+
+app = Flask(__name__) #create the Flask app
+
+@app.route('/slash', methods=['POST'])
+def slash_response():                
+    """endpoint for receiving all slash command requests from Slack"""
+
+    # get the full request from Slack
+    slack_request = request.form
+
+    # starting a new thread for doing the actual processing    
+    x = threading.Thread(
+            target=some_processing,
+            args=(slack_request,)
+        )
+    x.start()
+
+    ## respond to Slack with quick message
+    # and end the main thread for this request
+    return "Processing information.... please wait"
+
+def some_processing(slack_request):
+    """function for doing the actual work in a thread"""
+
+    # lets simulate heavy processing by waiting 7 seconds
+    sleep(7)
+
+    # response to Slack after processing is finished
+    response_url = slack_request["response_url"]    
+    message = {        
+        "text": "We found a result!"
+    }
+    res = requests.post(response_url, json=message)
+
+if __name__ == '__main__':
+    app.run(debug=True, port=8000) #run app in debug mode on port 8000
