@@ -8,6 +8,8 @@
 #define TRIGGER_PIN_2  10
 #define ECHO_PIN_2     9
 
+//Once again pin choice is arbitary
+
 #define SONAR_NUM 2
 
 #define MAX_DISTANCE 200 
@@ -15,25 +17,26 @@
 
 
 //Sensors are saved in array of sonars
-NewPing sonar[SONAR_NUM] = {
+NewPing sonar[SONAR_NUM] = 
+{
   NewPing(TRIGGER_PIN_1, ECHO_PIN_1, MAX_DISTANCE),
   NewPing(TRIGGER_PIN_2, ECHO_PIN_2, MAX_DISTANCE)
 };
 
-void setup() {
-  Serial.begin(115200); // Open serial monitor at 115200 baud to see ping results.
-}
-
-void loop() {                    // Wait 50ms between pings (about 20 pings/sec). 29ms should be the shortest delay between pings.
-  
-  Serial.print("Ping1:");
-  Serial.print(sonar[0].ping_cm()); // Send ping, get distance in cm and print result (0 = outside set distance range)
-  Serial.print(" ");
-  Serial.print("Ping2:");
-  Serial.print(sonar[1].ping_cm()); // Send ping, get distance in cm and print result (0 = outside set distance range)
-  Serial.println("");
-}
-
-bool timeComp()
+void setup() 
 {
+  Serial.begin(9600);
+}
+
+void loop() 
+{
+  //Print the data from the first sensor
+  Serial.print("Ping1:");
+  Serial.print(sonar[0].ping_cm());
+  Serial.print(" ");
+  
+  //Print the data from the second sensor
+  Serial.print("Ping2:");
+  Serial.print(sonar[1].ping_cm());
+  Serial.println("");
 }
