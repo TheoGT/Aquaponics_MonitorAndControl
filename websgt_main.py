@@ -10,7 +10,8 @@ app = Flask(__name__)
 def home():
     ambientT = np.genfromtxt('static/csv/temperatures.csv',delimiter=",")
     pH = np.genfromtxt('static/csv/pH.csv',delimiter=",")
-    return render_template("index.html",ambientTemp = int(ambientT[-1,1]), pH = pH[-1,1])
+    humidity = np.genfromtxt('static/csv/humidity.csv',delimiter=",")
+    return render_template("index.html",ambientTemp = int(ambientT[-1,1]), pH = pH[-1,1], humidity = humidity[-1,1])
 
 # @app.route("/index")
 # def index():
@@ -31,6 +32,14 @@ def pH():
     #monthmax = lastval % 10000
     
     return render_template("pH.html")
+
+@app.route("/humidity")
+def humidity():
+    csv = np.genfromtxt('static/csv/humidity.csv',delimiter = ",")
+    #lastvalue = csv[-1,0]
+    #monthmax = lastval % 10000
+    
+    return render_template("humidity.html")
 
 if __name__ == "__main__":
     app.run(debug=True)

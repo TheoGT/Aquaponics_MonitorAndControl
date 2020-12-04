@@ -36,7 +36,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-bolt"></i></div>
                                 Electrical Conductivity
                             </a>
-                            <a class="nav-link" href="Humidity.html">
+                            <a class="nav-link" href="{{ url_for('humidity') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tint"></i></div>
                                 Humidity
                             </a>
@@ -164,7 +164,7 @@
                                               <span class="progress-bar border-warning"></span>
                                 </span>
                                 <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
-                                  <div class="h2 font-weight-bold">60<sup class="small">%</sup></div>
+                                  <div class="h2 font-weight-bold">{{humidity}}<sup class="small">%</sup></div>
                                 </div>
                               </div>
                               <!-- END -->

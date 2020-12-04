@@ -138,27 +138,27 @@
                         <h1 class="mt-4">pH</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                            <li class="breadcrumb-item active">pH</li>
+                            <li class="breadcrumb-item active">Humidity</li>
                         </ol>
                             <div class="card mb-4">
                                 <div class="card-header">
                                     <i class="fas fa-chart-bar mr-1"></i>
-                                    pH Readings
+                                    Humidity Readings
                                 </div>
                                 <script type="text/javascript"
                                 src="../static/js/dygraph.js"></script>
                                 <link rel="stylesheet" src="../static/css/dygraph.css">
-                                <div id="graphdiv3"
+                                <div id="graphdiv4"
                                 style="width:95%; height:350px;" ></div>
                                 </div>
                                 <script type="text/javascript">
                                 g2 = new Dygraph(
-                                    document.getElementById("graphdiv3"),
-                                    "../static/csv/pH.csv", // path to CSV file
+                                    document.getElementById("graphdiv4"),
+                                    "../static/csv/humidity.csv", // path to CSV file
                                     {}          // options
                                 );
                                 </script>
-                                <div class="card-footer small text-muted">Updated: NOT FOUND </div>
+                                <div class="card-footer small text-muted">Updated: {{value}} </div>
                             </div>
                     </div>
                 </main>
