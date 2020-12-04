@@ -22,8 +22,9 @@ def Atemp():
     csv = np.genfromtxt('static/csv/temperatures.csv',delimiter = ",")
     #lastvalue = csv[-1,0]
     #monthmax = lastval % 10000
-    
-    return render_template("Temperature(Ambient).html",value = int(csv[-1,0]), monthmin = int(csv[10,0]), monthmax = int(csv[-1,0]))
+    #, monthmin = int(csv[10,0]), monthmax = int(csv[-1,0])
+    return render_template("Temperature(Ambient).html",value = int(csv[-1,1]), csvFile = "../" + csvFileName)
+    #return render_template("temp.html")
 
 @app.route("/pH")
 def pH():

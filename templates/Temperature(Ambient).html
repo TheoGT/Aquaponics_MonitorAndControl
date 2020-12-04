@@ -172,14 +172,17 @@
                                 <script type="text/javascript"
                                 src="../static/js/dygraph.js"></script>
                                 <link rel="stylesheet" src="../static/css/dygraph.css">
-                                <div id="graphdiv2"
-                                style="width:95%; height:350px;" ></div>
+                                <div id="graphdiv1"
+                                style="width:90%; height:350px;" ></div>
                                 </div>
                                 <script type="text/javascript">
+                                //var fileName = csvFile
+                                data = "../static/csv/temperatures.csv"
                                 g2 = new Dygraph(
-                                    document.getElementById("graphdiv2"),
-                                    "../static/csv/temperatures.csv", // path to CSV file
-                                    {dateWindow: [1170000000000,1200000000000]}          // options
+                                    document.getElementById("graphdiv1"),
+                                    data,
+                                    {} // path to CSV file
+                                    //{dateWindow: [1170000000000,1200000000000]}          // options
                                 );
                                 </script>
                                 <div class="card-footer small text-muted">Updated:  {{value}} </div>
