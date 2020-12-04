@@ -1,38 +1,38 @@
-/********************************************************************/
-//https://create.arduino.cc/projecthub/TheGadgetBoy/ds18b20-digital-temperature-sensor-and-arduino-9cc806
+//Code from https://create.arduino.cc/projecthub/TheGadgetBoy/ds18b20-digital-temperature-sensor-and-arduino-9cc806
 
-// First we include the libraries
 #include <OneWire.h> 
 #include <DallasTemperature.h>
-/********************************************************************/
-// Data wire is plugged into pin 2 on the Arduino 
+
+//Pin Choice is arbitary, pin 2 is used
 #define ONE_WIRE_BUS 2
-/********************************************************************/
-// Setup a oneWire instance to communicate with any OneWire devices  
-// (not just Maxim/Dallas temperature ICs) 
+
 OneWire oneWire(ONE_WIRE_BUS); 
-/********************************************************************/
-// Pass our oneWire reference to Dallas Temperature. 
 DallasTemperature sensors(&oneWire);
-/********************************************************************/ 
+//Setting up the wire
+
+//OneWire oneWire2(ARB_PIN);
+//DallasTemperature sensors2(&oneWire2);
+
+//Code for second sensor if needed
+//ARB_PIN is another arbitary pin
+
 void setup(void) 
 { 
- // start serial port 
  Serial.begin(9600); 
  Serial.println("Dallas Temperature IC Control Library Demo"); 
- // Start up the library 
+ 
  sensors.begin(); 
+ //sensors2.begin();
 } 
+
 void loop(void) 
 { 
- // call sensors.requestTemperatures() to issue a global temperature 
- // request to all devices on the bus 
-/********************************************************************/
- sensors.requestTemperatures(); // Send the command to get temperature readings 
-/********************************************************************/
+ sensors.requestTemperatures(); 
+ // Send the command to get temperature readings 
+ 
  Serial.print("Temperature is: "); 
- Serial.println(sensors.getTempCByIndex(0)); // Why "byIndex"?  
-   // You can have more than one DS18B20 on the same bus.  
-   // 0 refers to the first IC on the wire 
-   delay(1000); 
+ Serial.println(sensors.getTempCByIndex(0)); 
+ //Serial.println(sensors2.getTempCByIndex(0));
+ 
+ delay(1000); 
 } 
