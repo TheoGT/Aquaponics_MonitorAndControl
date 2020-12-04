@@ -3,6 +3,7 @@
 #define tx 3  
 //RX = Receive Data
 //TX = Transmit Data
+//Pins are arbitary
 
 SoftwareSerial myserial(rx, tx);
 //Put the RX pin first, followed by the TX pin
