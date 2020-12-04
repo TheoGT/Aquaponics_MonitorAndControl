@@ -39,8 +39,15 @@ def humidity():
     csv = np.genfromtxt('static/csv/humidity.csv',delimiter = ",")
     #lastvalue = csv[-1,0]
     #monthmax = lastval % 10000
-    
     return render_template("humidity.html")
+
+@app.route("/slack")
+def slack():
+    return render_template("slack.html")
+
+@app.route("/contacts")
+def contacts():
+    return render_template("ContactInfo.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
