@@ -11,8 +11,6 @@
 OneWire oneWire(ONE_WIRE_BUS); 
 DallasTemperature sensors(&oneWire);
 
-unsigned long prevTime = millis(); //for time keeping
-
 NewPing sonar = NewPing(TRIGGER_PIN_1, ECHO_PIN_1, MAX_DISTANCE);
 
 
@@ -31,17 +29,4 @@ void loop() {                    // Wait 50ms between pings (about 20 pings/sec)
     Serial.print("Temp:");
     Serial.println(sensors.getTempCByIndex(0));
 
-}
-
-bool timeComp()                              
-{
-  unsigned long curTime = millis();
-
-  
-  if (curTime - prevTime >= 10.0)
-  {
-    prevTime = curTime;
-    return true;
-  }
-  return false;
 }
