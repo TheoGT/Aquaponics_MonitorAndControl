@@ -1,105 +1,107 @@
-//This code was written to be easy to understand.
-									 
-//Modify this code as you see fit.
-//This code will output data to the Arduino serial monitor.
-//Type commands into the Arduino serial monitor to control the EC circuit.
-//This code was written in the Arduino 1.8.9 IDE
-//An Arduino UNO was used to test this code.
-//This code was last tested 6/2019
+#include <SoftwareSerial.h>                           
+#define rx 2                                          
+#define tx 3   
+//RX = Receive Data
+//TX = Transmit Data
+//Pin choice is arbitary
 
+SoftwareSerial myserial(rx, tx);
+//Put the RX pin first, followed by the TX pin
+//Mnemonic: Listen (receive) before you speak (transmit)
 
-#include <SoftwareSerial.h>                           //we have to include the SoftwareSerial library, or else we can't use it
-#define rx 2                                          //define what pin rx is going to be
-#define tx 3                                          //define what pin tx is going to be
+String inputstring = "";
+String sensorstring = "";
 
-SoftwareSerial myserial(rx, tx);                      //define how the soft serial port is going to work
-
-
-String inputstring = "";                              //a string to hold incoming data from the PC
-String sensorstring = "";                             //a string to hold the data from the Atlas Scientific product
-boolean input_string_complete = false;                //have we received all the data from the PC
-boolean sensor_string_complete = false;               //have we received all the data from the Atlas Scientific product
+boolean input_string_complete = false; 
+boolean sensor_string_complete = false;
 
 
 
 
-void setup() {                                        //set up the hardware
-  Serial.begin(9600);                                 //set baud rate for the hardware serial port_0 to 9600
-  myserial.begin(9600);                               //set baud rate for the software serial port to 9600
-  inputstring.reserve(10);                            //set aside some bytes for receiving data from the PC
-  sensorstring.reserve(30);                           //set aside some bytes for receiving data from Atlas Scientific product
-  Serial.println("Running");
+void setup() {                                        
+  Serial.begin(9600);
+	
+  myserial.begin(9600);
+  //Serial used by sensor
+	
+  inputstring.reserve(10);
+  sensorstring.reserve(30);
 }
 
 
-void serialEvent() {                                  //if the hardware serial port_0 receives a char
-  inputstring = Serial.readStringUntil(13);           //read the string until we see a <CR>
-  input_string_complete = true;                       //set the flag used to tell if we have received a completed string from the PC
+//Used for inputed command in Arduino serial monitor
+void serialEvent() 
+{
+  inputstring = Serial.readStringUntil(13);
+  input_string_complete = true;
 }
 
 
-void loop() {                                         //here we go...
-  Serial.println("still running");
+void loop() 
+{
+  //User types a command in the serial monitor
   Serial.println(String(input_string_complete));
-  if (input_string_complete == true) {                //if a string from the PC has been received in its entirety
-    myserial.print(inputstring);                      //send that string to the Atlas Scientific product
-    myserial.print('\r');                             //add a <CR> to the end of the string
-    inputstring = "";                                 //clear the string
-    input_string_complete = false;                    //reset the flag used to tell if we have received a completed string from the PC
+  if (input_string_complete == true) 
+  { 
+    myserial.print(inputstring); 
+    myserial.print('\r'); 
+    //Command is sent to the pH sensor
+	
+    //Remove the user's original command	  
+    inputstring = ""; 
+    input_string_complete = false;
   }
 
-  if (myserial.available() > 0) {                     //if we see that the Atlas Scientific product has sent a character
-    char inchar = (char)myserial.read();              //get the char we just received
-    sensorstring += inchar;                           //add the char to the var called sensorstring
-    if (inchar == '\r') {                             //if the incoming character is a <CR>
-      sensor_string_complete = true;                  //set the flag
+  //sensor sends data back.
+  //Records data bytes to arduino serial
+  if (myserial.available() > 0) 
+  {
+    char inchar = (char)myserial.read();
+    sensorstring += inchar; 
+    if (inchar == '\r') 
+    { 
+      sensor_string_complete = true;
     }
   }
 
 
-  if (sensor_string_complete == true) {               //if a string from the Atlas Scientific product has been received in its entirety
-    if (isdigit(sensorstring[0]) == false) {          //if the first character in the string is a digit
-      Serial.println(sensorstring);                   //send that string to the PC's serial monitor
+  if (sensor_string_complete == true) 
+  { 
+    if (isdigit(sensorstring[0]) == false) 
+    { 
+      //Print non-conductivity data text
+      //These are things such as pH status or errors
+      Serial.println(sensorstring);  
     }
-    else                                              //if the first character in the string is NOT a digit
+    else  
     {
-      print_EC_data();                                //then call this function 
+      //Print the conductivity data
+      print_EC_data();
     }
-    sensorstring = "";                                //clear the string
-    sensor_string_complete = false;                   //reset the flag used to tell if we have received a completed string from the Atlas Scientific product
+	  
+    //Remove original data from the conductivity sensor
+    sensorstring = "";
+    sensor_string_complete = false;
   }
 }
 
 
+//Code to change sensor data to a readable string
+void print_EC_data(void) 
+{ 
+  char sensorstring_array[30];
+  char *EC;                                           
+  //char pointer used in string parsing
 
-void print_EC_data(void) {                            //this function will pars the string  
-  Serial.println("test");
-  char sensorstring_array[30];                        //we make a char array
-  char *EC;                                           //char pointer used in string parsing
-  char *TDS;                                          //char pointer used in string parsing
-  char *SAL;                                          //char pointer used in string parsing
-  char *GRAV;                                         //char pointer used in string parsing
-  float f_ec;                                         //used to hold a floating point number that is the EC
+  float f_ec;
   
-  sensorstring.toCharArray(sensorstring_array, 30);   //convert the string to a char array 
-  EC = strtok(sensorstring_array, ",");               //let's pars the array at each comma
-  TDS = strtok(NULL, ",");                            //let's pars the array at each comma
-  SAL = strtok(NULL, ",");                            //let's pars the array at each comma
-  GRAV = strtok(NULL, ",");                           //let's pars the array at each comma
-
-  Serial.print("EC:");                                //we now print each value we parsed separately
-  Serial.println(EC);                                 //this is the EC value
-
-  Serial.print("TDS:");                               //we now print each value we parsed separately
-  Serial.println(TDS);                                //this is the TDS value
-
-  Serial.print("SAL:");                               //we now print each value we parsed separately
-  Serial.println(SAL);                                //this is the salinity value
-
-  Serial.print("GRAV:");                              //we now print each value we parsed separately
-  Serial.println(GRAV);                               //this is the specific gravity
-  Serial.println();                                   //this just makes the output easier to read
-
-  
-  //f_ec= atof(EC);                                     //uncomment this line to convert the char to a float
+  sensorstring.toCharArray(sensorstring_array, 30);
+  EC = strtok(sensorstring_array, ",");
+	
+  Serial.print("EC:");
+  Serial.println(EC);
+	
+  f_ec= atof(EC);                                     
+  //This line to convert the char to a float
+  //Used f_ec when comparing conductivity value in arduino
 }
