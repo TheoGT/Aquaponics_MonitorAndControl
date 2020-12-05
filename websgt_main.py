@@ -8,11 +8,10 @@ def getlastweek(csv):
     current = csv[-1,0]
     #looking for day seven days ago, will not work for may 1-6
     day = int(current.split("/")[2]) - 7
-    if (day < 1){
+    if (day < 1):
         day += 30
-    }
-    #change range depending on frequency of checks (should be around 1.5* expected checks per week)
-    for i in range(1,100):
+    
+    #change range depending on frequency of checks (should be around 1.5* expected checks per wee
 
 
 
