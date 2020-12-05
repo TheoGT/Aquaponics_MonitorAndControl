@@ -35,10 +35,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-tint"></i></div>
                                 Humidity
                             </a>
-                            <a class="nav-link" href="Nitrate.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-atom"></i></div>
-                                Nitrate
-                            </a>
+                        
                             <a class="nav-link" href="{{ url_for('pH') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-flask"></i></div>
                                 pH
@@ -91,15 +88,7 @@
                                         Authentication
                                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                                     </a>
-                                    <!--
-                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="login.html">Login</a>
-                                            <a class="nav-link" href="register.html">Register</a>
-                                            <a class="nav-link" href="password.html">Forgot Password</a>
-                                        </nav>
-                                    </div>
-                                -->
+                                
                                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
                                         Error
                                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -135,30 +124,30 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">Humidity</h1>
+                        <h1 class="mt-4">Electrical Conductivity</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Humidity</li>
+                            <li class="breadcrumb-item active">Electrical Conductivity</li>
                         </ol>
                             <div class="card mb-4">
                                 <div class="card-header">
                                     <i class="fas fa-chart-bar mr-1"></i>
-                                    Humidity Readings
+                                    Electrical Conductivity Readings
                                 </div>
                                 <script type="text/javascript"
                                 src="../static/js/dygraph.js"></script>
                                 <link rel="stylesheet" src="../static/css/dygraph.css">
-                                <div id="graphdiv4"
+                                <div id="graphdiv5"
                                 style="width:95%; height:350px;" ></div>
                                 </div>
                                 <script type="text/javascript">
                                 g2 = new Dygraph(
-                                    document.getElementById("graphdiv4"),
-                                    "../static/csv/humidity.csv", // path to CSV file
+                                    document.getElementById("graphdiv5"),
+                                    "../static/csv/EC.csv", // path to CSV file
                                     {}          // options
                                 );
                                 </script>
-                                <div class="card-footer small text-muted">Updated: {{value}} </div>
+                                <div class="card-footer small text-muted">Updated: NOT SUPPORTED </div>
                             </div>
                     </div>
                 </main>

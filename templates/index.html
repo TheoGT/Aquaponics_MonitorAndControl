@@ -32,7 +32,7 @@
                                 Dashboard
                             </a>
                             <div class="sb-sidenav-menu-heading">Sensors</div>
-                            <a class="nav-link" href="ElectricalConductivity.html">
+                            <a class="nav-link" href="{{ url_for('EC') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-bolt"></i></div>
                                 Electrical Conductivity
                             </a>
@@ -132,7 +132,7 @@
                                                   <span class="progress-bar border-success"></span>
                                     </span>
                                     <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
-                                      <div class="h2 font-weight-bold">80<sup class="small"></sup></div>
+                                      <div class="h2 font-weight-bold">{{EC}}<sup class="small"></sup></div>
                                     </div>
                                   </div>
                                   <!-- END -->
