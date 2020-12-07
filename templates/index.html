@@ -124,12 +124,12 @@
                                   <h2 class="h6 font-weight-bold text-center mb-4">EC (mewS/cm)</h2>
                           
                                   <!-- Progress bar 1 -->
-                                  <div class="progress mx-auto" data-value='80'>
+                                  <div class="progress mx-auto" data-value='{{EC*33}}'>
                                     <span class="progress-left">
-                                                  <span class="progress-bar border-success"></span>
+                                                  <span class="{{ecColor}}"></span>
                                     </span>
                                     <span class="progress-right">
-                                                  <span class="progress-bar border-success"></span>
+                                                  <span class="{{ecColor}}"></span>
                                     </span>
                                     <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
                                       <div class="h2 font-weight-bold">{{EC}}<sup class="small"></sup></div>
@@ -140,10 +140,10 @@
                                   <!-- Demo info -->
                                   <div class="row text-center mt-4">
                                     <div class="col-6 border-right">
-                                      <div class="h4 font-weight-bold mb-0">76</div><span class="small text-gray">Last week</span>
+                                      <div class="h4 font-weight-bold mb-0">{{ecLastHour}}</div><span class="small text-gray">Last hour</span>
                                     </div>
                                     <div class="col-6">
-                                      <div class="h4 font-weight-bold mb-0">78</div><span class="small text-gray">Last month</span>
+                                      <div class="h4 font-weight-bold mb-0">{{ecLastDay}}</div><span class="small text-gray">Last day</span>
                                     </div>
                                   </div>
                                   <!-- END -->
@@ -158,10 +158,10 @@
                               <!-- Progress bar 2 -->
                               <div class="progress mx-auto" data-value='60'>
                                 <span class="progress-left">
-                                              <span class="progress-bar border-warning"></span>
+                                              <span class="{{humidityColor}}"></span>
                                 </span>
                                 <span class="progress-right">
-                                              <span class="progress-bar border-warning"></span>
+                                              <span class="{{humidityColor}}"></span>
                                 </span>
                                 <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
                                   <div class="h2 font-weight-bold">{{humidity}}<sup class="small">%</sup></div>
@@ -172,10 +172,10 @@
                               <!-- Demo info -->
                               <div class="row text-center mt-4">
                                 <div class="col-6 border-right">
-                                  <div class="h4 font-weight-bold mb-0">68%</div><span class="small text-gray">Last week</span>
+                                  <div class="h4 font-weight-bold mb-0">{{humidityLastHour}}</div><span class="small text-gray">Last hour</span>
                                 </div>
                                 <div class="col-6">
-                                  <div class="h4 font-weight-bold mb-0">70%</div><span class="small text-gray">Last month</span>
+                                  <div class="h4 font-weight-bold mb-0">{{humidityLastDay}}</div><span class="small text-gray">Last day</span>
                                 </div>
                               </div>
                               <!-- END -->
@@ -218,12 +218,12 @@
                               <h2 class="h6 font-weight-bold text-center mb-4">pH</h2>
                       
                               <!-- Progress bar 4 -->
-                              <div class="progress mx-auto" data-value='45'>
+                              <div class="progress mx-auto" data-value={{pH*7.14}} >
                                 <span class="progress-left">
-                                              <span class="progress-bar border-danger"></span>
+                                              <span class="{{pHcolor}}"></span>
                                 </span>
                                 <span class="progress-right">
-                                              <span class="progress-bar border-danger"></span>
+                                              <span class="{{pHcolor}}"></span>
                                 </span>
                                 <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
                                   <div class="h2 font-weight-bold">{{pH}}<sup class="small"></sup></div>
@@ -234,10 +234,10 @@
                               <!-- Demo info -->
                               <div class="row text-center mt-4">
                                 <div class="col-6 border-right">
-                                  <div class="h4 font-weight-bold mb-0">7</div><span class="small text-gray">Last week</span>
+                                  <div class="h4 font-weight-bold mb-0">{{pHlastHour}}</div><span class="small text-gray">Last hour</span>
                                 </div>
                                 <div class="col-6">
-                                  <div class="h4 font-weight-bold mb-0">7</div><span class="small text-gray">Last month</span>
+                                  <div class="h4 font-weight-bold mb-0">{{pHlastDay}}</div><span class="small text-gray">Last day</span>
                                 </div>
                               </div>
                               <!-- END -->
@@ -280,12 +280,12 @@
                                   <h2 class="h6 font-weight-bold text-center mb-4">Temp-Ambient (F)</h2>
                           
                                   <!-- Progress bar 6 -->
-                                  <div class="progress mx-auto" data-value='76'>
+                                  <div class="progress mx-auto" data-value={{ambientTemp}}>
                                     <span class="progress-left">
-                                                  <span class="progress-bar border-success"></span>
+                                                  <span class="{{aTcolor}}"></span>
                                     </span>
                                     <span class="progress-right">
-                                                  <span class="progress-bar border-success"></span>
+                                                  <span class="{{aTcolor}}"></span>
                                     </span>
                                     <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
                                       <div class="h2 font-weight-bold">{{ambientTemp}}<sup class="small">F</sup></div>
@@ -296,10 +296,10 @@
                                   <!-- Demo info -->
                                   <div class="row text-center mt-4">
                                     <div class="col-6 border-right">
-                                      <div class="h4 font-weight-bold mb-0">75</div><span class="small text-gray">Last week</span>
+                                      <div class="h4 font-weight-bold mb-0">{{aTlasthour}}</div><span class="small text-gray">Last hour</span>
                                     </div>
                                     <div class="col-6">
-                                      <div class="h4 font-weight-bold mb-0">78</div><span class="small text-gray">Last month</span>
+                                      <div class="h4 font-weight-bold mb-0">{{aTlastday}}</div><span class="small text-gray">Last day</span>
                                     </div>
                                   </div>
                                   <!-- END -->
@@ -311,7 +311,7 @@
                                   <h2 class="h6 font-weight-bold text-center mb-4">Temp-Water (F)</h2>
                           
                                   <!-- Progress bar 7 -->
-                                  <div class="progress mx-auto" data-value='52'>
+                                  <div class="progress mx-auto" data-value='64'>
                                     <span class="progress-left">
                                                   <span class="progress-bar border-warning"></span>
                                     </span>
@@ -319,7 +319,7 @@
                                                   <span class="progress-bar border-warning"></span>
                                     </span>
                                     <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
-                                      <div class="h2 font-weight-bold">52<sup class="small">F</sup></div>
+                                      <div class="h2 font-weight-bold">64<sup class="small">F</sup></div>
                                     </div>
                                   </div>
                                   <!-- END -->
