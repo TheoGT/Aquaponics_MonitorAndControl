@@ -27,7 +27,7 @@
                                 Dashboard
                             </a>
                             <div class="sb-sidenav-menu-heading">Sensors</div>
-                            <a class="nav-link" href="ElectricalConductivity.html">
+                            <a class="nav-link" href="{{ url_for('EC') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-bolt"></i></div>
                                 Electrical Conductivity
                             </a>
@@ -35,10 +35,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-tint"></i></div>
                                 Humidity
                             </a>
-                            <a class="nav-link" href="Nitrate.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-atom"></i></div>
-                                Nitrate
-                            </a>
+                    
                             <a class="nav-link" href="{{ url_for('pH') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-flask"></i></div>
                                 pH
@@ -59,11 +56,11 @@
 
                             <div class="sb-sidenav-menu-heading">Other</div>
                             </a>
-                            <a class="nav-link" href="ContactInfo.html">
+                            <a class="nav-link" href="{{ url_for('contacts') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-address-card"></i></div>
                                 Contact Info
                             </a>
-                            <a class="nav-link" href="Slack.html">
+                            <a class="nav-link" href="{{ url_for('slack') }}">
                                 <div class="sb-nav-link-icon"><i class="fab fa-slack"></i></div>
                                 Slack
                             </a>
